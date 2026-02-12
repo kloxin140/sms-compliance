@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mendes Assets - SMS Program</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: #1a1a2e;
+            background: #f8f9fa;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: #1a1a2e;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+        header p {
+            font-size: 1rem;
+            opacity: 0.85;
+        }
+        section {
+            background: #fff;
+            margin: 24px auto;
+            max-width: 720px;
+            padding: 32px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        section h2 {
+            font-size: 1.35rem;
+            margin-bottom: 16px;
+            color: #1a1a2e;
+            border-bottom: 2px solid #e8e8e8;
+            padding-bottom: 8px;
+        }
+        section p, section li {
+            font-size: 0.95rem;
+            color: #333;
+            margin-bottom: 12px;
+        }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+
+        /* Opt-in Form */
+        .opt-in-form {
+            background: #f0f4ff;
+            border: 1px solid #d0d8f0;
+            border-radius: 8px;
+            padding: 24px;
+            margin-top: 16px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .form-group input[type="tel"],
+        .form-group input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+        .consent-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 16px 0;
+            background: #fff;
+            padding: 14px;
+            border-radius: 6px;
+            border: 1px solid #d0d8f0;
+        }
+        .consent-group input[type="checkbox"] {
+            margin-top: 4px;
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+        .consent-group label {
+            font-size: 0.88rem;
+            line-height: 1.5;
+            color: #333;
+        }
+        .consent-group a {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+        .btn-submit {
+            background: #1a1a2e;
+            color: #fff;
+            border: none;
+            padding: 12px 32px;
+            font-size: 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .btn-submit:hover {
+            background: #2d2d4e;
+        }
+        .disclosure {
+            font-size: 0.82rem;
+            color: #666;
+            margin-top: 12px;
+            text-align: center;
+        }
+
+        /* Keyword Section */
+        .keyword-box {
+            background: #f0f4ff;
+            border: 1px solid #d0d8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 16px;
+            text-align: center;
+        }
+        .keyword-box .number {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a2e;
+        }
+        .keyword-box .keyword {
+            display: inline-block;
+            background: #1a1a2e;
+            color: #fff;
+            padding: 4px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin: 8px 4px;
+        }
+
+        /* Policy Sections */
+        .policy-section h3 {
+            font-size: 1.05rem;
+            margin: 20px 0 8px;
+            color: #1a1a2e;
+        }
+        .policy-section p {
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 32px 20px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+        footer a { color: #2563eb; text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        /* Nav links */
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin: 16px auto;
+            max-width: 720px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .nav-links a:hover { text-decoration: underline; }
+
+        .success-message {
+            display: none;
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+            padding: 16px;
+            border-radius: 6px;
+            text-align: center;
+            margin-top: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Mendes Assets</h1>
+    <p>SMS Notifications Program</p>
+</header>
+
+<div class="nav-links">
+    <a href="#opt-in">SMS Opt-In</a>
+    <a href="#privacy">Privacy Policy</a>
+    <a href="#terms">Terms of Service</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<!-- SMS OPT-IN SECTION -->
+<section id="opt-in">
+    <h2>SMS Opt-In</h2>
+    <p>Mendes Assets provides service-related SMS notifications for asset recovery and networking equipment returns. By opting in, you will receive messages regarding:</p>
+    <ul>
+        <li>Equipment return reminders and deadlines</li>
+        <li>Return shipping label links</li>
+        <li>RMA (Return Merchandise Authorization) status updates</li>
+        <li>Service confirmations</li>
+    </ul>
+
+    <div class="opt-in-form">
+        <h3 style="margin-bottom:16px; font-size:1.1rem;">Sign Up for SMS Notifications</h3>
+        <form id="smsOptInForm" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Your full name" required>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="(555) 555-5555" required>
+            </div>
+            <div class="consent-group">
+                <input type="checkbox" id="smsConsent" name="smsConsent" required>
+                <label for="smsConsent">
+                    I agree to receive service-related SMS notifications from <strong>Mendes Assets</strong> at the phone number provided above. I understand that message frequency varies and that message and data rates may apply. I can opt out at any time by replying <strong>STOP</strong>. I have read and agree to the <a href="#privacy">Privacy Policy</a> and <a href="#terms">Terms of Service</a>.
+                </label>
+            </div>
+            <button type="submit" class="btn-submit">Opt In to SMS Notifications</button>
+            <p class="disclosure">Message frequency varies. Message and data rates may apply.<br>Reply STOP to unsubscribe. Reply HELP for help.</p>
+        </form>
+        <div class="success-message" id="successMsg">
+            Thank you! You have been opted in to SMS notifications from Mendes Assets. You will receive a confirmation message shortly.
+        </div>
+    </div>
+
+    <div class="keyword-box" style="margin-top:24px;">
+        <p style="margin-bottom:8px; font-weight:600;">You can also opt in via text message:</p>
+        <p>Text <span class="keyword">START</span> to <span class="number">(833) 794-5517</span></p>
+        <p style="font-size:0.85rem; color:#666; margin-top:8px;">By texting START, you consent to receive service-related SMS from Mendes Assets. Reply STOP to opt out.</p>
+    </div>
+</section>
+
+<!-- PRIVACY POLICY -->
+<section id="privacy" class="policy-section">
+    <h2>Privacy Policy</h2>
+    <p><strong>Effective Date:</strong> February 12, 2026</p>
+    <p><strong>Business:</strong> Mendes Assets | Operator: Kloxin Mendes</p>
+
+    <h3>Information We Collect</h3>
+    <p>When you opt in to our SMS program, we collect your phone number and name solely for the purpose of sending service-related SMS notifications regarding asset recovery and equipment returns.</p>
+
+    <h3>How We Use Your Information</h3>
+    <p>Your phone number is used exclusively to send SMS notifications related to:</p>
+    <ul>
+        <li>Equipment return reminders and deadlines</li>
+        <li>Return shipping label links</li>
+        <li>RMA status updates</li>
+        <li>Service confirmations</li>
+    </ul>
+    <p>We do not use your phone number for marketing, promotional, or advertising purposes.</p>
+
+    <h3>Information Sharing</h3>
+    <p>We do <strong>not</strong> sell, rent, share, or distribute your phone number or personal information to any third parties. Your information is shared only with our SMS service provider (Twilio) solely for the purpose of delivering messages.</p>
+
+    <h3>Data Retention</h3>
+    <p>We retain your phone number only for as long as you are opted in to our SMS program. Once you opt out by replying STOP, your information is removed from our active messaging list.</p>
+
+    <h3>Data Security</h3>
+    <p>We implement reasonable security measures to protect your personal information from unauthorized access, alteration, or disclosure.</p>
+
+    <h3>Your Rights</h3>
+    <p>You have the right to:</p>
+    <ul>
+        <li>Opt out of SMS messages at any time by replying <strong>STOP</strong></li>
+        <li>Request information about what data we hold by replying <strong>HELP</strong> or contacting us</li>
+        <li>Request deletion of your data by emailing us at the address below</li>
+    </ul>
+
+    <h3>Contact Us</h3>
+    <p>For privacy-related inquiries, contact us at:<br>
+    Email: <a href="mailto:kloxin140@gmail.com">kloxin140@gmail.com</a></p>
+
+    <h3>Changes to This Policy</h3>
+    <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated effective date.</p>
+</section>
+
+<!-- TERMS OF SERVICE -->
+<section id="terms" class="policy-section">
+    <h2>Terms of Service</h2>
+    <p><strong>Effective Date:</strong> February 12, 2026</p>
+    <p><strong>Business:</strong> Mendes Assets | Operator: Kloxin Mendes</p>
+
+    <h3>SMS Program Description</h3>
+    <p>Mendes Assets operates an SMS notification program that sends service-related messages for asset recovery and networking equipment returns. This program is operated by Mendes Assets under the toll-free number (833) 794-5517.</p>
+
+    <h3>Consent and Opt-In</h3>
+    <p>By submitting the opt-in form on this page or by texting START to (833) 794-5517, you expressly consent to receive service-related SMS messages from Mendes Assets. Your consent is not a condition of any purchase or service.</p>
+
+    <h3>Message Frequency</h3>
+    <p>Message frequency varies based on your service activity. You may receive messages related to equipment return deadlines, shipping labels, and RMA status updates. We estimate sending no more than 10 messages per month per recipient.</p>
+
+    <h3>Message and Data Rates</h3>
+    <p>Standard message and data rates may apply depending on your mobile carrier and plan. Mendes Assets is not responsible for any charges incurred from your carrier.</p>
+
+    <h3>Opting Out</h3>
+    <p>You may opt out of SMS messages at any time by replying <strong>STOP</strong> to any message received from (833) 794-5517. You will receive a one-time confirmation message acknowledging your opt-out request. No further messages will be sent.</p>
+
+    <h3>Help</h3>
+    <p>For support, reply <strong>HELP</strong> to any message or contact us at <a href="mailto:kloxin140@gmail.com">kloxin140@gmail.com</a>.</p>
+
+    <h3>Supported Carriers</h3>
+    <p>Our SMS program is supported on all major U.S. carriers including AT&T, Verizon, T-Mobile, Sprint, and others. Carrier support may vary.</p>
+
+    <h3>Liability</h3>
+    <p>Mendes Assets is not liable for delayed or undelivered messages due to carrier network issues, device incompatibility, or other factors outside our control.</p>
+
+    <h3>Changes to Terms</h3>
+    <p>We reserve the right to modify these Terms of Service at any time. Updated terms will be posted on this page with a revised effective date.</p>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact Information</h2>
+    <p><strong>Business:</strong> Mendes Assets</p>
+    <p><strong>Operator:</strong> Kloxin Mendes</p>
+    <p><strong>Email:</strong> <a href="mailto:kloxin140@gmail.com">kloxin140@gmail.com</a></p>
+    <p><strong>SMS Number:</strong> (833) 794-5517</p>
+    <p><strong>Address:</strong> 10700 Copper Basin Cv, Austin, TX 78717</p>
+</section>
+
+<footer>
+    <p>&copy; 2026 Mendes Assets. All rights reserved.</p>
+    <p style="margin-top:8px;">
+        <a href="#opt-in">SMS Opt-In</a> &middot;
+        <a href="#privacy">Privacy Policy</a> &middot;
+        <a href="#terms">Terms of Service</a>
+    </p>
+</footer>
+
+<script>
+function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('smsOptInForm').style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
